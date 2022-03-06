@@ -2,16 +2,30 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// TODO: Create an array of questions for user input
-const promptUser = userData => {
-    if (!userData) {
-        userData = [];
-      }
-    return inquirer.prompt ([
+let userData = [
+    {question: "What is the project title?"},
+    {question: "How would you describe the project?"}
+];
+
+function readmeSetupQ() {
+    inquirer.prompt ([
         {
             type: 'input',
-            name: 'project-title',
-            message: 'What is your project title? (Required)',
+            name: 'projectTitle',
+            message: userData[0].question,
+            validate: projectTitleInput => {
+                if (projectTitleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a project title!')
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'projectSubTitle',
+            message: userData[1].question,
             validate: projectTitleInput => {
                 if (projectTitleInput) {
                     return true;
@@ -21,18 +35,13 @@ const promptUser = userData => {
                 }
             }
         }
-    ])
-    .then(userResponse => {
-        userData.push(userResponse);
-        if (userResponse.confirmAddProject) {
-          return promptUser(userData);
-        } else {
-          console.log(userData)
-          return userData;
-        }
-      });
+    
+    ])  
+    .then(function(answer) {
+        writeFile('### ' + answer.projectTitle);
+        console.log(answer.projectTitle);
+    })
 }
-
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
@@ -56,8 +65,4 @@ const writeFile = fileContent => {
 
 // Function call to initialize app
 // init();
-promptUser()
-    .then(userData => {
-        return console.log(userData[0]);
-    });
-
+readmeSetupQ();
