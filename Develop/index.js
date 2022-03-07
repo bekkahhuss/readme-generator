@@ -1,17 +1,22 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const fs = require('fs');
-
+const { generateTitle } = require('./utils/generateMarkdown');
+const { writeFile } = require('./utils/generateReadme');
 let userData = [
     {question: "What is the project title?"},
     {question: "How would you describe the project?"}
 ];
 
-function readmeSetupQ() {
-    inquirer.prompt ([
+let names = [];
+
+const readmeSetupQ = names => {
+    if (!names) {
+        names = [];
+    }
+    return inquirer.prompt ([
         {
             type: 'input',
-            name: 'projectTitle',
+            name: 'name_0',
             message: userData[0].question,
             validate: projectTitleInput => {
                 if (projectTitleInput) {
@@ -24,7 +29,7 @@ function readmeSetupQ() {
         },
         {
             type: 'input',
-            name: 'projectSubTitle',
+            name: 'name_1',
             message: userData[1].question,
             validate: projectTitleInput => {
                 if (projectTitleInput) {
@@ -35,34 +40,31 @@ function readmeSetupQ() {
                 }
             }
         }
-    
-    ])  
-    .then(function(answer) {
-        writeFile('### ' + answer.projectTitle);
-        console.log(answer.projectTitle);
-    })
-}
-
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-const writeFile = fileContent => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', fileContent, err => {
-            if (err) {
-                reject(err);
-                return;
-            }
-
-            resolve({
-                ok: true,
-                message: 'File created!'
-            });
-        });
+    ])
+    .then(readmeData_x => {
+        names.push(readmeData_x);
+        if (readmeData_x.confirmAddProject) {
+            return readmeSetupQ(names);
+        } else {
+            return names;
+        }
     });
 };
+
 // TODO: Create a function to initialize app
 // function init() {}
 
 // Function call to initialize app
 // init();
-readmeSetupQ();
+readmeSetupQ()
+    .then (readmeData => {
+        console.log(readmeData);
+        writeFile(generateTitle(readmeData));
+    });
+
+
+
+
+
+
+    
