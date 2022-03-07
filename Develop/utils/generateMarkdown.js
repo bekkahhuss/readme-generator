@@ -17,10 +17,10 @@ const generateTitle = titleText => {
   if (!titleText) {
     return '';
   }
-  console.log(`${titleText}`);
+  console.log(titleText[0] + ', ' + titleText[1]);
   return `
-  ### ${titleText}
-  ${titleText}
+  ### ${titleText[0]}
+  ${titleText[1]}
   `;
 };
 

@@ -58,8 +58,12 @@ const readmeSetupQ = names => {
 // init();
 readmeSetupQ()
     .then (readmeData => {
-        console.log(readmeData);
-        writeFile(generateTitle(readmeData));
+        const foo = [
+            readmeData[0].name_0,
+            readmeData[0].name_1
+        ];
+        console.log(foo);
+        writeFile(generateTitle(foo));
     });
 
 
