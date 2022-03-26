@@ -16,8 +16,6 @@ let userData = [
     {question: "Please provide a usage example"}
 ];
 
-let names = [];
-
 const readmeSetupQ = names => {
     if (!names) {
         names = [];
@@ -31,7 +29,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -44,7 +42,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -57,7 +55,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -70,7 +68,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -83,7 +81,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -96,7 +94,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -109,7 +107,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -122,7 +120,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -135,7 +133,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -148,7 +146,7 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
@@ -161,16 +159,16 @@ const readmeSetupQ = names => {
                 if (projectTitleInput) {
                     return true;
                 } else {
-                    console.log('Please enter a project title!')
+                    console.log('You must enter a response!')
                     return false;
                 }
             }
         }
 
     ])
-    .then(readmeData_x => {
-        names.push(readmeData_x);
-        if (readmeData_x.confirmAddProject) {
+    .then(answers => {
+        names.push(answers);
+        if (answers.confirmAddProject) {
             return readmeSetupQ(names);
         } else {
             return names;
@@ -199,7 +197,6 @@ readmeSetupQ()
             readmeData[0].name_10
             
         ];
-        console.log(foo);
         writeFile(generateTitle(foo));
     });
 
