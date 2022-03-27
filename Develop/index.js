@@ -5,15 +5,16 @@ const { writeFile } = require('./utils/generateReadme');
 let userData = [
     {question: "What is the project title?"},
     {question: "How would you describe the project?"},
-    {question: "What was your motivation?"},
-    {question: "Why did you build this project?"},
-    {question: "What problem does it solve?"},
-    {question: "What did you learn?"},
-    {question: "Provide installation instructions in three steps. What is step 1?"},
-    {question: "What is step 2?"},
-    {question: "What is step 3?"},
-    {question: "How do you use this application?"},
-    {question: "Please provide a usage example"}
+    {question: "What problem does this project solve?"},
+    {question: "How does it work?"},
+    {question: "Provide a project download link."},
+    {question: "Provide installation instructions."},
+    {question: "Provide instructions to use this project."},
+    {question: "What type of License do you want to use?"},
+    {question: "Who contributed to this project?"},
+    {question: "Provide a link to their github."},
+    {question: "Provide a link to your Github page."},
+    {question: "Provide an email address for users to ask questions."}
 ];
 
 const readmeSetupQ = names => {
@@ -113,9 +114,13 @@ const readmeSetupQ = names => {
             }
         },
         {
-            type: 'input',
+            type: 'list',
             name: 'name_7',
             message: userData[7].question,
+            choices: ['MIT', 'GNU', 'Apache', 'None'],
+            filter(val) {
+                return val.toLowerCase();
+            },
             validate: projectTitleInput => {
                 if (projectTitleInput) {
                     return true;
@@ -163,7 +168,20 @@ const readmeSetupQ = names => {
                     return false;
                 }
             }
-        }
+        },
+        {
+            type: 'input',
+            name: 'name_11',
+            message: userData[11].question,
+            validate: projectTitleInput => {
+                if (projectTitleInput) {
+                    return true;
+                } else {
+                    console.log('You must enter a response!')
+                    return false;
+                }
+            }
+        },       
 
     ])
     .then(answers => {
@@ -183,7 +201,7 @@ const readmeSetupQ = names => {
 // init();
 readmeSetupQ()
     .then (readmeData => {
-        const foo = [
+        const data = [
             readmeData[0].name_0,
             readmeData[0].name_1,
             readmeData[0].name_2,
@@ -194,10 +212,11 @@ readmeSetupQ()
             readmeData[0].name_7,
             readmeData[0].name_8,
             readmeData[0].name_9,
-            readmeData[0].name_10
+            readmeData[0].name_10,
+            readmeData[0].name_11
             
         ];
-        writeFile(generateTitle(foo));
+        writeFile(generateTitle(data));
     });
 
 

@@ -1,71 +1,35 @@
 
-  # h
+  # Readme Generator 
   
+  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](http://www.apache.org/licenses/) <br> <a href="http://www.apache.org/licenses/">This project is secured by an Apache License</a>
+
   ## Description 
-  h
+  This program makes writing readme files easy
   
-  - h
-  - h
-  - h
-  - s
+  - Automatically writes markdown based on user responses
+  - The user enters answers in the terminal via inquirer prompts 
+
 
   ## Table of Contents 
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits)
-  - [License](#license)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [Contributing](#contributing)
+  - [Questions](#questions)
 
   ## Installation 
-  - s
-  - s
-  - s 
+  - https://github.com/bekkahhuss/readme-generator
+  - Download repo from github and open in your code editor 
 
   ## Usage 
-  
-  - s
-  - h
-
-  ## Credits 
-
-  - Collaborator - GitHub Link 
-  -              - 
-  -              -
-  -              - 
-
-  ## License
-
-  MIT License
-
-  Copyright (c) [year] [fullname]
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
+  - Using Node JS run the index.js file and answer the inquirer prompts. A readme file will be generated based on your responses.
+ 
+  ## Contributing
+  - Rebekkah Huss  [Github Link](https://github.com/bekkahhuss)
 
 
-  ## Badges 
-
-  ## Features 
-
-
-  ## How to contribute 
-  
-
-  ## Tests 
+  ## Questions 
+  - To Checkout more of my projects visit my Github page https://github.com/bekkahhuss
+  - If you have any questions please send me an email at myemail@gmail.com 
 
 
 
